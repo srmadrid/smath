@@ -1,12 +1,13 @@
 # Linear algebra
 This small repository holds a .hpp file containing some useful algebra operations using vectors and matrices. 
-It is not meant to be taken seriously, as this is a test repository to begin leaning the platform and the workflow. <br/>
-To use this repository, simply copy the .hpp file and include it in your file (#include "path/algebra.hpp").
+It is not meant to be taken seriously, as this is a test repository to begin leaning the platform and the workflow.
 
 ### Functions list:
 | Function              | Description                                                            | Input          | Output |
 |-----------------------|------------------------------------------------------------------------|----------------|--------|
 | vector_print          | Prints the input vector                                                | vector         | void   |
+| vector_addition       | Returns the result of adding the input vectors                         | vector, vector | vector |
+| vector_subtraction    | Returns the result of subtracting the input vectors                    | vector, vector | vector |
 | vector_modulus        | Returns the modulus of the input vector                                | vector         | double |
 | vector_scalar         | Returns the result of multiplying the input vector by the input scalar | vector, double | vector |
 | vector_dot            | Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product) of the input vectors | vector, vector | double |

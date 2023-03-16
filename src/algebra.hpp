@@ -10,6 +10,24 @@ void vector_print(std::vector<double> &V){
 }
 
 
+std::vector<double> vector_addition(std::vector<double> V, std::vector<double> &W){
+    // Assumes input vectors have equal dimensions
+    for(int i {0}; i < V.size(); ++i){
+        V[i] += W[i];
+    }
+    return V;
+}
+
+
+std::vector<double> vector_subtraction(std::vector<double> V, std::vector<double> &W){
+    // Assumes input vectors have equal dimensions
+    for(int i {0}; i < V.size(); ++i){
+        V[i] -= W[i];
+    }
+    return V;
+}
+
+
 double vector_modulus(std::vector<double> &V){
     double result {0};
     for(double i: V){
@@ -18,12 +36,14 @@ double vector_modulus(std::vector<double> &V){
     return std::sqrt(result);
 }
 
+
 std::vector<double> vector_scalar(std::vector<double> V, double x){
     for(int i {0}; i < V.size(); ++i){
         V[i] *= x;
     }
     return V;
 }
+
 
 double vector_dot(std::vector<double> &V, std::vector<double> &W){
     // Assumes input vectors have equal lengths
