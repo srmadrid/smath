@@ -1,6 +1,7 @@
 # Linear algebra
 This small repository holds a .hpp file containing some useful algebra operations using vectors and matrices. 
-It is not meant to be taken seriously, as this is a test repository to begin leaning the platform and the workflow.
+It is not meant to be taken seriously, as this is a test repository to begin leaning the platform and the workflow. <br/>
+To use this repository, simply copy the .hpp file and include it in your file (#include "path/algebra.hpp").
 
 ### Functions list:
 | Function              | Description                                                            | Input          | Output |
