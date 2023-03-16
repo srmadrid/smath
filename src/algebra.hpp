@@ -78,6 +78,19 @@ void matrix_print(std::vector<std::vector<double>> &A){
 }
 
 
+std::vector<std::vector<double>> matrix_identity(int n, int m){
+    std::vector<std::vector<double>> A (n, std::vector<double> (m, 0));
+    for(int i {0}; i < A.size(); ++i){
+        for(int j {0}; j < A[0].size(); ++j){
+            if(i == j){
+                A[i][j] = 1;
+            }
+        }
+    }
+    return A;
+}
+
+
 std::vector<std::vector<double>> matrix_transpose(std::vector<std::vector<double>> &A){
     std::vector<std::vector<double>> B (A[0].size(), std::vector<double> (A.size(), 0));
     for(int i {0}; i < A.size(); ++i){
@@ -111,6 +124,16 @@ std::vector<std::vector<double>> matrix_subtraction(std::vector<std::vector<doub
 }
 
 
+std::vector<std::vector<double>> matrix_scalar(std::vector<std::vector<double>> A, double x){
+    for(int i {0}; i < A.size(); ++i){
+        for(int j {0}; j < A[0].size(); ++j){
+            A[i][j] *= x;
+        }
+    }
+    return A;
+}
+
+
 std::vector<std::vector<double>> matrix_multiplication(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &B){
     // Assumes input matrices have correct dimensions
     std::vector<std::vector<double>> C (A.size(), std::vector<double> (B[0].size(), 0));
@@ -122,4 +145,17 @@ std::vector<std::vector<double>> matrix_multiplication(std::vector<std::vector<d
         }
     }
     return C;
+}
+
+
+std::vector<std::vector<double>> matrix_power(std::vector<std::vector<double>> A, int x){
+    if(x == 0){
+        return matrix_identity(A.size(), A.size());
+    }else{
+        std::vector<std::vector<double>> B {A};
+        for(int i {0}; i < x - 1; ++i){
+            B = matrix_multiplication(B, A);
+        }
+        return B;
+    }
 }

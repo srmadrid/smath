@@ -14,7 +14,11 @@ It is not meant to be taken seriously, as this is a test repository to begin lea
 | vector_cross          | Returns the [cross product](https://en.wikipedia.org/wiki/Cross_product) of the input vectors | vector, vector | vector |
 | vector_projection     | In development                                                         |                |        |
 | matrix_print          | Prints the input matrix                                                | matrix         | void   |
+| matrix_identity       | Returns the identity matrix of the specified dimensions (n x m)        | int, int       | matrix |
 | matrix_transpose      | Returns the [transpose](https://en.wikipedia.org/wiki/Transpose) of the input matrix | matrix | matrix |
 | matrix_addition       | Returns the result of adding the input matrices                        | matrix, matrix | matrix |
 | matrix_subtraction    | Returns the result of subtracting the input matrices                   | matrix, matrix | matrix |
+| matrix_scalar         | Returns the result of multiplying the input matrix by the input scalar | matrix, double | matrix |
 | matrix_multiplication | Returns the result of [multiplying](https://en.wikipedia.org/wiki/Matrix_multiplication) the input matrices | matrix, matrix | matrix |
+| matrix_power          | Returns the result of calculating the xth power of the input matrix; if x is 0, returns the identity matrix with the size of the input matrix | matrix, int    | matrix |
+
