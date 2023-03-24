@@ -4,6 +4,7 @@ It is my first repository, and its intention is for me to get used to the git an
 
 ## Functions list:
 ### Algebra
+#### Vector: generalized for vectors of any dimensions
 | Function              | Description                                                            | Input          | Output |
 |-----------------------|------------------------------------------------------------------------|----------------|--------|
 | vector::print          | Prints the input vector                                                | vector         | void   |
@@ -13,7 +14,11 @@ It is my first repository, and its intention is for me to get used to the git an
 | vector::scalar         | Returns the result of multiplying the input vector by the input scalar | vector, double | vector |
 | vector::dot            | Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product) of the input vectors | vector, vector | double |
 | vector::cross          | Returns the [cross product](https://en.wikipedia.org/wiki/Cross_product) of the input vectors | vector, vector | vector |
-| vector::projection     | In development                                                         |                |        |
+| vector::projection     | In development             |                |        |
+
+#### Matrix: generalized for matrices of any dimensions
+| Function              | Description                                                            | Input          | Output |
+|-----------------------|------------------------------------------------------------------------|----------------|--------|
 | matrix::print          | Prints the input matrix                                                | matrix         | void   |
 | matrix::identity       | Returns the identity matrix of the specified dimensions (n x m)        | int, int       | matrix |
 | matrix::transpose      | Returns the [transpose](https://en.wikipedia.org/wiki/Transpose) of the input matrix | matrix | matrix |
