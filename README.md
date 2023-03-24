@@ -1,6 +1,6 @@
-# Linear algebra
-This small repository holds a .hpp file containing some useful algebra operations using vectors and matrices. 
-It is not meant to be taken seriously, as this is a test repository to begin leaning the platform and the workflow.
+# SMath
+This is a library of header files containing various mathematical equations. The name is short for Sergio Math.
+It is my first repository, and its intention is for me to get used to the git and github workflow.
 
 ## Functions list:
 ### Algebra
