@@ -10,7 +10,7 @@ namespace algebra{
 
         void print(std::vector<std::vector<double>> &A){
             for(std::vector<double> &V: A){
-                for(double x: V){
+                for(double &x: V){
                     std::cout << x << " ";
                 }
                 std::cout << std::endl;

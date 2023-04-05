@@ -8,7 +8,7 @@ namespace algebra{
     namespace vector{
 
         void print(std::vector<double> &V){
-            for(double i: V){
+            for(double &i: V){
                 std::cout << i << " ";
             }std::cout << std::endl;
         }
@@ -34,7 +34,7 @@ namespace algebra{
 
         double modulus(std::vector<double> &V){
             double result {0};
-            for(double i: V){
+            for(double &i: V){
                 result += std::pow(i, 2);
             }
             return std::sqrt(result);
