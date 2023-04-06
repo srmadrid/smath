@@ -1,8 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include "../../include/algebra/matrix.hpp"
-#include "../../include/algebra/vector.hpp"
+#include "../../include/algebra/matrix.h"
+#include "../../include/algebra/vector.h"
 
 
 namespace algebra{

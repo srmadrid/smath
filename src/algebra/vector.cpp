@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include "../../include/algebra/vector.hpp"
+#include "../../include/algebra/vector.h"
 
 
 namespace algebra{
