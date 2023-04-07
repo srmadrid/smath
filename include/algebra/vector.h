@@ -22,8 +22,6 @@ namespace algebra{
 
         double dot(std::vector<double> &V, std::vector<double> &W);
 
-        std::vector<double> cross(std::vector<double> &V, std::vector<double> &W);
-
         std::vector<double> projection(std::vector<double> V, std::vector<double> W);
 
     }

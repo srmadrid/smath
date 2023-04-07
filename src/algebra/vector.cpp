@@ -59,16 +59,6 @@ namespace algebra{
         }
 
 
-        std::vector<double> cross(std::vector<double> &V, std::vector<double> &W){
-            // Assumes input vectors have 3 components
-            std::vector<double> X {0, 0, 0};
-            X[0] += V[1]*W[2] - V[2]*W[1];
-            X[1] += V[2]*W[0] - V[0]*W[2];
-            X[2] += V[0]*W[1] - V[1]*W[0];
-            return X;
-        }
-
-
         std::vector<double> projection(std::vector<double> V, std::vector<double> W){
             // To be developed
             return std::vector<double> {1, 2, 3};

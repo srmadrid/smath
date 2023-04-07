@@ -13,7 +13,6 @@ It is my first repository, and its intention is for me to get used to the git an
 | vector::modulus        | Returns the modulus of the input vector                                | vector         | double |
 | vector::scalar         | Returns the result of multiplying the input vector by the input scalar | vector, double | vector |
 | vector::dot            | Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product) of the input vectors | vector, vector | double |
-| vector::cross          | Returns the [cross product](https://en.wikipedia.org/wiki/Cross_product) of the input vectors | vector, vector | vector |
 | vector::projection     | In development             |                |        |
 
 #### Matrix: generalized for matrices of any dimensions
