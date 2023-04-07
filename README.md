@@ -28,3 +28,19 @@ It is my first repository, and its intention is for me to get used to the git an
 | matrix::multiplication | Returns the result of [multiplying](https://en.wikipedia.org/wiki/Matrix_multiplication) the input matrices | matrix, matrix | matrix |
 | matrix::power          | Returns the result of calculating the xth power of the input matrix; if x is 0, returns the identity matrix with the size of the input matrix | matrix, int    | matrix |
 
+#### Vector2: class of vectors of 2 dimensions. Optimized
+| Function              | Description                                                            | Input          | Output |
+|-----------------------|------------------------------------------------------------------------|----------------|--------|
+| this->print          | Prints the vector                                                | this         | void   |
+| this->modulus        | Returns the modulus of the vector                                | this           | double |
+| Vector2::dot            | Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product) of the input vectors | vector, vector | double |
+| Vector2::projection     | In development             |                |        |
+
+#### Vector3: class of vectors of 3 dimensions. Optimized
+| Function              | Description                                                            | Input          | Output |
+|-----------------------|------------------------------------------------------------------------|----------------|--------|
+| this->print          | Prints the vector                                                | this           | void   |
+| this->modulus        | Returns the modulus of the vector                                | this | double |
+| Vector3::dot            | Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product) of the input vectors | Vector3, Vector3 | double |
+| Vector3::cross          | Returns the [cross product](https://en.wikipedia.org/wiki/Cross_product) of the input vectors | Vector3, Vector3 | Vector3 |
+| Vector3::projection     | In development             |                |        |
