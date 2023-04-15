@@ -35,4 +35,5 @@ double dot(const Vector2 &v, const Vector2 &u);
 }
 
 
+
 #endif

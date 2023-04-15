@@ -43,3 +43,25 @@ It is my first repository, and its intention is for me to get used to the git an
 | Vector3::dot            | Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product) of the input vectors | Vector3, Vector3 | double |
 | Vector3::cross          | Returns the [cross product](https://en.wikipedia.org/wiki/Cross_product) of the input vectors | Vector3, Vector3 | Vector3 |
 | Vector3::projection     | In development             |                |        |
+
+#### Matrix2: class of 2x2 matrices. Optimized.
+| Function              | Description                                                            | Input          | Output |
+|-----------------------|------------------------------------------------------------------------|----------------|--------|
+| this->determinant    | Returns the determinant of the marix                             | this           | double |
+| this->transpose      | Transposes the matrix                                            | this | void   |
+| this->inverse        | Inverts the matrix                                               | this | void   |
+| Matrix2::identity       | Returns the identity                                          | void | Matrix2 |
+| Matrix2::determinant    | Returns the determinant of the input matrix | Matrix2 | Double |
+| Matrix2::transpose      | Returns the transpose of the input matrix | Matrix2 | Matrix2 |
+| Matrix2::inverse       | Returns the inverse of the input matrix | Matrix2 | Matrix2 |
+
+#### Matrix3: class of 3x3 matrices. Optimized.
+| Function              | Description                                                            | Input          | Output |
+|-----------------------|------------------------------------------------------------------------|----------------|--------|
+| this->determinant    | Returns the determinant of the marix                             | this           | double |
+| this->transpose      | Transposes the matrix                                            | this | void   |
+| this->inverse        | Inverts the matrix                                               | this | void   |
+| Matrix3::identity       | Returns the identity                                          | void | Matrix3 |
+| Matrix3::determinant    | Returns the determinant of the input matrix | Matrix3 | Double |
+| Matrix3::transpose      | Returns the transpose of the input matrix | Matrix3 | Matrix3 |
+| Matrix3::inverse       | Returns the inverse of the input matrix | Matrix3 | Matrix3 |
