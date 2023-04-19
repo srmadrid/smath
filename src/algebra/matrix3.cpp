@@ -1,9 +1,15 @@
 #include "../../include/algebra/matrix3.h"
 
+#include <cmath>
 #include <iostream>
 #include <ostream>
 
 
+//------------------------------------------------------------------------------
+// Class functions
+//------------------------------------------------------------------------------
+
+// Addittion of this matrix plus another
 Matrix3 Matrix3::operator+=(const Matrix3 &other){
     m00 += other.m00; m01 += other.m01; m02 += other.m02;
     m10 += other.m10; m11 += other.m11; m12 += other.m12;
@@ -12,6 +18,7 @@ Matrix3 Matrix3::operator+=(const Matrix3 &other){
 }
 
 
+// Subtraction of this matrix minus another
 Matrix3 Matrix3::operator-=(const Matrix3 &other){
     m00 -= other.m00; m01 -= other.m01; m02 -= other.m02;
     m10 -= other.m10; m11 -= other.m11; m12 -= other.m12;
@@ -20,6 +27,7 @@ Matrix3 Matrix3::operator-=(const Matrix3 &other){
 }
 
 
+// Product of this matrix times a scalar
 Matrix3 Matrix3::operator*=(const double t){
     m00 *= t; m01 *= t; m02 *= t;
     m10 *= t; m11 *= t; m12 *= t;
@@ -28,11 +36,31 @@ Matrix3 Matrix3::operator*=(const double t){
 }
 
 
+// Product of this matrix times another
 Matrix3 Matrix3::operator*=(const Matrix3 &other){
+    double temp00 {m00*other.m00 + m01*other.m10 + m02*other.m20};
+    double temp01 {m00*other.m01 + m01*other.m11 + m02*other.m21};
+    double temp02 {m00*other.m02 + m01*other.m12 + m02*other.m22};
+    double temp10 {m10*other.m00 + m11*other.m10 + m12*other.m20};
+    double temp11 {m10*other.m01 + m11*other.m11 + m12*other.m21};
+    double temp12 {m10*other.m02 + m11*other.m12 + m12*other.m22};
+    double temp20 {m20*other.m00 + m21*other.m10 + m22*other.m20};
+    double temp21 {m20*other.m01 + m21*other.m11 + m22*other.m21};
+    double temp22 {m20*other.m02 + m21*other.m12 + m22*other.m22};
+    m00 = temp00; 
+    m01 = temp01; 
+    m02 = temp02;
+    m10 = temp10; 
+    m11 = temp11; 
+    m12 = temp12;
+    m20 = temp20; 
+    m21 = temp21; 
+    m22 = temp22;
     return *this;
 }
 
 
+// Division of this matrix by a scalar
 Matrix3 Matrix3::operator/=(const double t){
     double p {1/t};
     m00 *= p; m01 *= p; m02 *= p;
@@ -42,11 +70,13 @@ Matrix3 Matrix3::operator/=(const double t){
 }
 
 
+// Returns the determinant of this matrix
 double Matrix3::determinant(){
     return m00*m11*m22 + m01*m12*m20 + m02*m10*m21 - m20*m11*m02 - m10*m01*m22 - m00*m21*m12;
 }
 
 
+// Transposes this matrix
 void Matrix3::transpose(){
     double temp {m20};
     m20 = m02; m02 = temp;
@@ -59,8 +89,9 @@ void Matrix3::transpose(){
 }
 
 
+// Inverts this matrix
 void Matrix3::inverse(){
-    // calculate and check determinant
+    // calculate and check the determinant
     double det {m00*m11*m22 + m01*m12*m20 + m02*m10*m21 - m20*m11*m02 - m10*m01*m22 - m00*m21*m12};
     if(det == 0) return;
     det = 1/det;
@@ -87,12 +118,15 @@ void Matrix3::inverse(){
 }
 
 
+// out
 std::ostream &operator<<(std::ostream &os, const Matrix3 &A){
     return os << A.m00 << ", " << A.m01 << ", " << A.m02 << std::endl <<
                  A.m10 << ", " << A.m11 << ", " << A.m12 << std::endl << 
                  A.m20 << ", " << A.m21 << ", " << A.m22;
 }
 
+
+// Addittion of two matrices
 Matrix3 operator+(const Matrix3 &A, const Matrix3 &B){
     return Matrix3(A.m00 + B.m00, A.m01 + B.m01, A.m02 + B.m02,
                    A.m10 + B.m10, A.m11 + B.m11, A.m12 + B.m12,
@@ -100,6 +134,7 @@ Matrix3 operator+(const Matrix3 &A, const Matrix3 &B){
 }
 
 
+// Subtraction of two matrices
 Matrix3 operator-(const Matrix3 &A, const Matrix3 &B){
     return Matrix3(A.m00 - B.m00, A.m01 - B.m01, A.m02 - B.m02,
                    A.m10 - B.m10, A.m11 - B.m11, A.m12 - B.m12,
@@ -107,6 +142,7 @@ Matrix3 operator-(const Matrix3 &A, const Matrix3 &B){
 }
 
 
+// Product of a matrix times a scalar
 Matrix3 operator*(const Matrix3 &A, double t){
     return Matrix3(A.m00*t, A.m01*t, A.m02*t,
                    A.m10*t, A.m11*t, A.m12*t,
@@ -114,6 +150,7 @@ Matrix3 operator*(const Matrix3 &A, double t){
 }
 
 
+// Product of a matrix times a scalar
 Matrix3 operator*(double t, const Matrix3 &A){
     return Matrix3(A.m00*t, A.m01*t, A.m02*t,
                    A.m10*t, A.m11*t, A.m12*t,
@@ -121,9 +158,27 @@ Matrix3 operator*(double t, const Matrix3 &A){
 }
 
 
-Vector3 operator*(const Matrix3 &A, const Vector3 &v);
-Vector3 operator*(const Vector3 &v, const Matrix3 &A);
-Matrix3 operator*(const Matrix3 &A, const Matrix3 &B);
+// Product of a matrix (3x3) times a vector (3x1) -> (3x1)
+Vector3 operator*(const Matrix3 &A, const Vector3 &v){
+    return Vector3(A.m00*v.x + A.m01*v.y + A.m02*v.z, A.m10*v.x + A.m11*v.y + A.m12*v.z, A.m20*v.x + A.m21*v.y + A.m22*v.z);
+}
+
+
+// Product of a vector (1x3) times a matrix (3x3) -> (1x3)
+Vector3 operator*(const Vector3 &v, const Matrix3 &A){
+    return Vector3(v.x*A.m00 + v.y*A.m10 + v.z*A.m20, v.x*A.m01 + v.y*A.m11 + v.z*A.m21, v.x*A.m02 + v.y*A.m12 + v.z*A.m22);
+}
+
+
+// Product of two matrices (3x3) -> (3x3)
+Matrix3 operator*(const Matrix3 &A, const Matrix3 &B){
+    return Matrix3(A.m00*B.m00 + A.m01*B.m10 + A.m02*B.m20, A.m00*B.m01 + A.m01*B.m11 + A.m02*B.m21, A.m00*B.m02 + A.m01*B.m12 + A.m02*B.m22,
+                   A.m10*B.m00 + A.m11*B.m10 + A.m12*B.m20, A.m10*B.m01 + A.m11*B.m11 + A.m12*B.m21, A.m10*B.m02 + A.m11*B.m12 + A.m12*B.m22,
+                   A.m20*B.m00 + A.m21*B.m10 + A.m22*B.m20, A.m20*B.m01 + A.m21*B.m11 + A.m22*B.m21, A.m20*B.m02 + A.m21*B.m12 + A.m22*B.m22);
+}
+
+
+// Division of a matrix by a scalar
 Matrix3 operator/(const Matrix3 &A, double t){
     double p {1/t};
     return Matrix3(A.m00*p, A.m01*p, A.m02*p,
@@ -132,11 +187,13 @@ Matrix3 operator/(const Matrix3 &A, double t){
 }
 
 
-bool operator==(const Matrix3 &A, const Matrix3 &B);
-
+//------------------------------------------------------------------------------
+// Utility functions
+//------------------------------------------------------------------------------
 
 namespace matrix3{
 
+// Returns the identity matrix (3x3)
 Matrix3 identity(){
     return Matrix3(1, 0, 0,
                    0, 1, 0,
@@ -144,20 +201,23 @@ Matrix3 identity(){
 }
 
 
-double determinant(Matrix3 &A){
+// Returns the determinant of the input matrix
+double determinant(const Matrix3 &A){
     return A.m00*A.m11*A.m22 + A.m01*A.m12*A.m20 + A.m02*A.m10*A.m21 - A.m20*A.m11*A.m02 - A.m10*A.m01*A.m22 - A.m00*A.m21*A.m12;
 }
 
 
-Matrix3 transpose(Matrix3 &A){
+// Returns the transpose of the input matrix
+Matrix3 transpose(const Matrix3 &A){
     return Matrix3(A.m00, A.m10, A.m20,
                    A.m01, A.m11, A.m21,
                    A.m02, A.m12, A.m22);
 }
 
 
+// Returns the inverse of the input matrix
 Matrix3 inverse(Matrix3 A){
-    // calculate and check determinant
+    // calculate and check the determinant
     double det {A.m00*A.m11*A.m22 + A.m01*A.m12*A.m20 + A.m02*A.m10*A.m21 - A.m20*A.m11*A.m02 - A.m10*A.m01*A.m22 - A.m00*A.m21*A.m12};
     if(det == 0) return A;
     det = 1/det;

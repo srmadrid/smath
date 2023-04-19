@@ -2,6 +2,7 @@
 #define MATRIX3_H
 
 #include "vector3.h"
+#include "constants.h"
 
 #include <ostream>
 
@@ -43,8 +44,8 @@ bool operator==(const Matrix3 &A, const Matrix3 &B);
 namespace matrix3{
 
 Matrix3 identity();
-double determinant(Matrix3 &A);
-Matrix3 transpose(Matrix3 &A);
+double determinant(const Matrix3 &A);
+Matrix3 transpose(const Matrix3 &A);
 Matrix3 inverse(Matrix3 A);
 
 }

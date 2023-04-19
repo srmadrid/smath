@@ -2,6 +2,9 @@
 #define MATRIX2_H
 
 #include "vector2.h"
+#include "constants.h"
+
+#include <ostream>
 
 
 class Matrix2{
@@ -24,6 +27,7 @@ public:
 };
 
 
+std::ostream &operator<<(std::ostream &os, const Matrix2 &A);
 Matrix2 operator+(const Matrix2 &A, const Matrix2 &B);
 Matrix2 operator-(const Matrix2 &A, const Matrix2 &B);
 Matrix2 operator*(const Matrix2 &A, double t);
@@ -38,9 +42,9 @@ bool operator==(const Matrix2 &A, const Matrix2 &B);
 namespace matrix2{
 
 Matrix2 identity();
-double determinant(Matrix2 &A);
-Matrix2 transpose(Matrix2 &A);
-Matrix2 inverse(Matrix2 &A);
+double determinant(const Matrix2 &A);
+Matrix2 transpose(const Matrix2 &A);
+Matrix2 inverse(const Matrix2 &A);
 
 }
 
