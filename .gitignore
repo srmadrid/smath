@@ -9,10 +9,10 @@ main
 
 # test/ext/ where google tests is situated #
 ############################################
-./test/ext/
-./test/CMakeLists.txt
-./test/build/
+test/ext/
+test/CMakeLists.txt
+test/build/
 
 # Ignore build artifacts #
 ##########################
-./build/
+build/
