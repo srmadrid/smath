@@ -1,4 +1,0 @@
-/home/sergiom/Desktop/smath/build/CMakeFiles/smath.dir
-/home/sergiom/Desktop/smath/build/CMakeFiles/linear-algebra.dir
-/home/sergiom/Desktop/smath/build/CMakeFiles/edit_cache.dir
-/home/sergiom/Desktop/smath/build/CMakeFiles/rebuild_cache.dir
