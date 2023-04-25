@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/sergiom/Desktop/smath/lib/linear-algebra.a "CMakeFiles/linear-algebra.dir/src/linear-algebra/matrix2.cpp.o" "CMakeFiles/linear-algebra.dir/src/linear-algebra/matrix3.cpp.o" "CMakeFiles/linear-algebra.dir/src/linear-algebra/matrix4.cpp.o" "CMakeFiles/linear-algebra.dir/src/linear-algebra/vector2.cpp.o" "CMakeFiles/linear-algebra.dir/src/linear-algebra/vector3.cpp.o" "CMakeFiles/linear-algebra.dir/src/linear-algebra/vector4.cpp.o"
+/usr/bin/ranlib /home/sergiom/Desktop/smath/lib/linear-algebra.a

@@ -6,4 +6,13 @@ main
 
 # Object files #
 ################
-*.[oa]
+
+# test/ext/ where google tests is situated #
+############################################
+./test/ext/
+./test/CMakeLists.txt
+./test/build/
+
+# Ignore build artifacts #
+##########################
+./build/
