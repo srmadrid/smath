@@ -2,6 +2,7 @@
 #define LINEAR_ALGEBRA_H
 
 #include "constants.h"
+#include "complex.h"
 #include "vector2.h"
 #include "vector3.h"
 #include "vector4.h"

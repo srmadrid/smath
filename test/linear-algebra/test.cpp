@@ -3,6 +3,143 @@
 
 
 //------------------------------------------------------------------------------
+// Complex tests
+//------------------------------------------------------------------------------
+
+// +=
+TEST(Complex, Addition_assig_1){
+    Complex c(1, 3);
+    c += Complex(4, 2);
+    EXPECT_EQ(Complex(5, 5), c);
+}
+
+TEST(Complex, Addition_assig_2){
+    Complex v(6, 1);
+    v += -2;
+    EXPECT_EQ(Complex(4, 1), v);
+}
+
+// -=
+TEST(Complex, Subtraction_assig_1tr){
+    Complex c(1, 3);
+    c -= Complex(4, 2);
+    EXPECT_EQ(Complex(-3, 1), c);
+}
+
+TEST(Complex, Subtraction_assig_2){
+    Complex v(6, 1);
+    v -= -2;
+    EXPECT_EQ(Complex(8, 1), v);
+}
+
+// *=
+TEST(Complex, Multiplication_assig_1){
+    Complex c(1, 3);
+    c *= Complex(4, 2);
+    EXPECT_EQ(Complex(-2, 14), c);
+}
+
+TEST(Complex, Multiplication_assig_2){
+    Complex v(6, 1);
+    v *= -2;
+    EXPECT_EQ(Complex(-12, -2), v);
+}
+
+// /=
+TEST(Complex, Division_assig_1){
+    Complex c(1, 3);
+    c /= Complex(4, 2);
+    EXPECT_EQ(Complex(0.5, 0.5), c);
+}
+
+TEST(Complex, Division_assig_2){
+    Complex v(6, 1);
+    v /= -2;
+    EXPECT_EQ(Complex(-3, -0.5), v);
+}
+
+// +
+TEST(Complex, Addition_1){
+    Complex c(1, 3);
+    Complex w(4, 2);
+    Complex q = c + w;
+    EXPECT_EQ(Complex(5, 5), q);
+}
+
+TEST(Complex, Addition_2){
+    Complex v(6, 1);
+    Complex w = v + 2;
+    EXPECT_EQ(Complex(8, 1), w);
+}
+
+TEST(Complex, Addition_3){
+    Complex v(6, 1);
+    Complex w = 2 + v;
+    EXPECT_EQ(Complex(8, 1), w);
+}
+
+// -
+TEST(Complex, Subtraction_1){
+    Complex c(1, 3);
+    Complex w(4, 2);
+    Complex q = c - w;
+    EXPECT_EQ(Complex(-3, 1), q);
+}
+
+TEST(Complex, Subtraction_2){
+    Complex v(6, 1);
+    Complex w = v - 2;
+    EXPECT_EQ(Complex(4, 1), w);
+}
+
+TEST(Complex, Subtraction_3){
+    Complex v(6, 1);
+    Complex w = 2 - v;
+    EXPECT_EQ(Complex(-4, -1), w);
+}
+
+// *
+TEST(Complex, Multiplication_1){
+    Complex c(1, 3);
+    Complex w(4, 2);
+    Complex q = c*w;
+    EXPECT_EQ(Complex(-2, 14), q);
+}
+
+TEST(Complex, Multiplication_2){
+    Complex v(6, 1);
+    Complex w = v*-2;
+    EXPECT_EQ(Complex(-12, -2), w);
+}
+
+TEST(Complex, Multiplication_3){
+    Complex v(6, 1);
+    Complex w = -2*v;
+    EXPECT_EQ(Complex(-12, -2), w);
+}
+
+// /
+TEST(Complex, Division_1){
+    Complex c(1, 3);
+    Complex w(4, 2);
+    Complex q = c/w;
+    EXPECT_EQ(Complex(0.5, 0.5), q);
+}
+
+TEST(Complex, Division_2){
+    Complex v(6, 1);
+    Complex w = v/-2;
+    EXPECT_EQ(Complex(-3, -0.5), w);
+}
+
+TEST(Complex, Division_3){
+    Complex v(6, 1);
+    Complex w = -2/v;
+    EXPECT_EQ(Complex(-0.324324324, 0.0540540541), w);
+}
+
+
+//------------------------------------------------------------------------------
 // Vector2 tests
 //------------------------------------------------------------------------------
 
