@@ -1,5 +1,5 @@
-#ifndef LINEAR_ALGEBRA_H
-#define LINEAR_ALGEBRA_H
+#ifndef SMATH_LINEAR_ALGEBRA_H
+#define SMATH_LINEAR_ALGEBRA_H
 
 #include "constants.h"
 #include "complex.h"

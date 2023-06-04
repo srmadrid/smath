@@ -1,5 +1,5 @@
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
+#ifndef SMATH_CONSTANTS_H
+#define SMATH_CONSTANTS_H
 
 
 #ifndef PI

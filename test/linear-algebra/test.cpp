@@ -1,6 +1,7 @@
 #include "../../include/linear-algebra/linear-algebra.h"
 #include <gtest/gtest.h>
 
+using namespace smath::linear_algebra;
 
 //------------------------------------------------------------------------------
 // Complex tests
@@ -56,6 +57,14 @@ TEST(Complex, Division_assig_2){
     Complex v(6, 1);
     v /= -2;
     EXPECT_EQ(Complex(-3, -0.5), v);
+}
+
+// this->conjugate
+
+TEST(Complex, Self_conjugate_1){
+    Complex c(2, 1);
+    c.conjugate();
+    EXPECT_EQ(Complex(2, -1), c);
 }
 
 // +
@@ -206,6 +215,11 @@ TEST(Vector2, Self_modulus_2){
     EXPECT_EQ(5, v.modulus());
 }
 
+TEST(Vector2, Complex_Self_modulus_1){
+    Vector2c v(Complex(2, 3), Complex(-1, 2));
+    EXPECT_EQ(std::sqrt(18), v.modulus());
+}
+
 // this->normalize
 TEST(Vector2, Self_normalize_1){
     Vector2 v(3, 5);
@@ -217,6 +231,12 @@ TEST(Vector2, Self_normalize_2){
     Vector2 v(4, -3);
     v.normalize();
     EXPECT_EQ(Vector2(0.8, -0.6), v);
+}
+
+TEST(Vector2, Complex_Self_normalize_1){
+    Vector2c v(Complex(2, -1), Complex(2, 4));
+    v.normalize();
+    EXPECT_EQ(Vector2c(Complex(0.4, -0.2), Complex(0.4, 0.8)), v);
 }
 
 // +
@@ -275,6 +295,12 @@ TEST(Vector2, Division_2){
     EXPECT_EQ(Vector2(1, 0.33333333333), u);
 }
 
+TEST(Vector2, Complex_division_1){
+    Vector2 v(1, 3);
+    Vector2c u = v/Complex(1, 2);
+    EXPECT_EQ(Vector2c(Complex(0.2, -0.4), Complex(0.6, -1.2)), u);
+}
+
 // dot
 TEST(Vector2, Dot_1){
     Vector2 v(2, 5);
@@ -286,6 +312,12 @@ TEST(Vector2, Dot_2){
     Vector2 v(2, 5);
     Vector2 u(5, -2);
     EXPECT_EQ(0, vector2::dot(v, u));
+}
+
+TEST(Vector2, Complex_dot_1){
+    Vector2c v(Complex(1, -1), Complex(3, -9));
+    Vector2c u(Complex(8, 1), Complex(-3, 1));
+    EXPECT_EQ(Complex(-11, 15), vector2::dot(v, u));
 }
 
 
@@ -438,6 +470,12 @@ TEST(Vector3, Dot_2){
     EXPECT_EQ(0, vector3::dot(v, u));
 }
 
+TEST(Vector3, Complex_dot_1){
+    Vector3c v(Complex(1, -1), Complex(3, -9), Complex(0, 2));
+    Vector3c u(Complex(8, 1), Complex(-3, 1), Complex(1, -2));
+    EXPECT_EQ(Complex(-15, 17), vector3::dot(v, u));
+}
+
 // cross
 TEST(Vector3, Cross_1){
     Vector3 v(3, 1, 5);
@@ -449,6 +487,18 @@ TEST(Vector3, Cross_2){
     Vector3 v(6, 7, 1);
     Vector3 u(0, 0, 1);
     EXPECT_EQ(Vector3(7, -6, 0), vector3::cross(v, u));
+}
+
+TEST(Vector3, Complex_cross_1){
+    Vector3c v(Complex(1, -1), Complex(3, -1), Complex(3, 2));
+    Vector3c u(Complex(1, 1), Complex(-3, 1), Complex(1, -2));
+    EXPECT_EQ(Vector3c(Complex(12, -4), Complex(2, 8), Complex(-6, 2)), vector3::cross(v, u));
+}
+
+TEST(Vector3, Complex_cross_2){
+    Vector3c v(Complex(1, -1), Complex(3, -1), Complex(3, 2));
+    Vector3 u(2, 4, 1);
+    EXPECT_EQ(Vector3c(Complex(-9, -9), Complex(5, 5), Complex(-2, -2)), vector3::cross(v, u));
 }
 
 
@@ -853,7 +903,7 @@ TEST(Matrix2, Division_2){
 
 // identity
 TEST(Matrix2, Identity_1){
-    Matrix2 A = matrix2::identity();
+    Matrix2 A = matrix2::identity<double>();
     EXPECT_EQ(Matrix2(1, 0, 0, 1), A);
 }
 
@@ -1196,7 +1246,7 @@ TEST(Matrix3, Division_2){
 
 // identity
 TEST(Matrix3, Identity_1){
-    Matrix3 A = matrix3::identity();
+    Matrix3 A = matrix3::identity<double>();
     EXPECT_EQ(Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1), A);
 }
 
@@ -1590,7 +1640,7 @@ TEST(Matrix4, Division_2){
 
 // identity
 TEST(Matrix4, Identity_1){
-    Matrix4 A = matrix4::identity();
+    Matrix4 A = matrix4::identity<double>();
     EXPECT_EQ(Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), A);
 }
 
